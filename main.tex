@@ -4,7 +4,7 @@
 % License : MIT
 %-------------------------------------
 
-\documentclass[letterpaper,12pt]{article}[leftmargin=*]
+\documentclass[letterpaper,11pt]{article}[leftmargin=*]
 
 \usepackage[empty]{fullpage}
 \usepackage{enumitem}
@@ -22,11 +22,13 @@
 \usepackage{anyfontsize}
 \usepackage{xcolor}
 \usepackage{tabularx}
+\usepackage{tcolorbox}
+
 
 %-------------------------------------------------- SETTINGS HERE --------------------------------------------------
 % Header settings
 \def \fullname {Ethan Haque}
-\def \subtitle {}
+\def \subtitle {Full Stack Developer}
 
 \def \linkedinicon {\faLinkedin}
 \def \linkedinlink {https://www.linkedin.com/in/ethan-haque}
@@ -43,6 +45,9 @@
 \def \githublink {https://github.com/Ethan-Haque}
 \def \githubtext {/Ethan-Haque}
 
+ \def \websiteicon {\faGlobe}
+ \def \websitelink {https://ethan-haque.github.io}
+ \def \websitetext {Ethan-Haque.github.io}
 
 \def \headertype {\doublecol} % \singlecol or \doublecol
 
@@ -53,9 +58,9 @@
 
 % Define colours
 \definecolor{primary}{HTML}{000000}
-\definecolor{secondary}{HTML}{0D47A1}
+\definecolor{secondary}{HTML}{191919}
 \definecolor{accent}{HTML}{263238}
-\definecolor{links}{HTML}{1565C0}
+\definecolor{links}{HTML}{0D47A1}
 
 %------------------------------------------------------------------------------------------------------------------- 
 
@@ -64,6 +69,7 @@
 \def \phone {\phoneicon \hspace{3pt}{ \phonetext}}
 \def \email {\emailicon \hspace{3pt}\href{\emaillink}{\emailtext}}
 \def \github {\githubicon \hspace{3pt}\href{\githublink}{\githubtext}}
+\def \website {\websiteicon \hspace{3pt}\href{\websitelink}{\websitetext}}
 
 % Adjust margins
 \addtolength{\oddsidemargin}{-0.55in}
@@ -88,7 +94,8 @@
 
 % Sections
 \renewcommand{\section}[2]{\vspace{5pt}
-  \colorbox{secondary}{\color{white}\raggedbottom\normalsize\textbf{{#1}{\hspace{7pt}#2}}}
+  \tcbox[on line,boxsep=0pt,left=2pt,right=2pt,top=2pt,bottom=2pt,colback=secondary]
+  {\color{white}\raggedbottom\normalsize\textbf{{#1}{\hspace{7pt}#2}}}
 }
 
 % Entry start and end, for spacing
@@ -175,36 +182,48 @@
 
 %---------------------------------------------------- HEADER ----------------------------------------------------
 
-\headertype{\linkedin}{\github}{}{\phone}{\email}{} % Set the order of items here
+\headertype{\linkedin}{\github}{}{\website}{\email}{\phone} % Set the order of items here
 
 
 %-------------------------------------------------- WORK EXPERIENCE --------------------------------------------------
 \section{\faPieChart}{Work Experience}
 
-  \resumeEntryStart
+\resumeEntryStart
     \resumeEntryTSDL
-      {Three Trees Technical - EPorter}{Nov 2021 -- Jun 2022}
-      {Full Stack Developer}{Full time}
+      {E-Porter}{Aug 2022 - Present}
+      {Full Stack}{Full time}
     \resumeItemListStart
-      \resumeItem {Worked with a small team to develop a complete package delivery system for a startup.}
+      \resumeItem {Drive the entirety of technology operations for E-Porter, overseeing the management and enhancement of the web app, mobile apps, and backend.}
       \resumeItemListStart
-        \resumeItem {Web App and Mobile App: Various pages, Forms, Photo/file uploading, and Map Routing} 
-        \resumeItem {Back-end: Data structure, REST functions for Payment processor (Peloton), Deliveries, and Users}
-        \resumeItem {Hosting (Digital Ocean): Image/file upload server, Web Client, and landing page}
+        \resumeItem {Led the implementation of user-centric features with a focus on responsive design across all services.}
+        \resumeItem{Manage all hosting, App Store operations, and backups to guarantee uninterrupted and dependable functionality.}
+        \resumeItem{Participate in cross-functional meetings to support various aspects of E-Porter's operations.}
       \resumeItemListEnd
-      \resumeItem {MongoDB, Angular 12, TypeScript, NodeJS, Ionic Framework (IOS \& Android), Digital Ocean, and Docker.}
+      \resumeItem {MongoDB, Express, Angular (TypeScript), NodeJS, Ionic Framework, Digital Ocean, Docker, Google API, MapBox, Firebase.}
     \resumeItemListEnd
-  \resumeEntryEnd
+  
+    \resumeEntryTSDL
+      {Three Trees Technical | Consulting for E-Porter}{Nov 2021 -- Jun 2022}
+      {Full Stack}{Full time}
+    \resumeItemListStart
+      \resumeItem {Developed an end-to-end package delivery system in collaboration with a small team for E-Porter.}
+      \resumeItemListStart
+        \resumeItem {Designed and implemented web and mobile app pages, ensuring a responsive design for optimal user experiences.} 
+        \resumeItem {Engineered database models, API controllers, and routing systems for seamless integration of payment processing, delivery operations, user management, and entities.}
+      \resumeItemListEnd
+      \resumeItem {MongoDB, Express, Angular (TypeScript), NodeJS, Ionic Framework, Digital Ocean, Docker, Google API, MapBox, Firebase.}
+    \resumeItemListEnd
 
-  \resumeEntryStart
     \resumeEntryTSDL
       {Metl Solutions}{May 2021 - Aug 2021}
-      {Backend Developer}{Co-op}
+      {Backend}{Internship}
     \resumeItemListStart
-      \resumeItem {Worked with a group of Capstone students to implement a MS Teams bot that interacts with their API.}
-      \resumeItem {Primarily worked on chat event handling and bot backend. Modified API REST functions to support the bot.}
-      \resumeItem {Assisted with documentation and presentations.}
-      \resumeItem {Worked with NodeJS, Python, and Django.}
+      \resumeItem {Worked with a team of Capstone students to develop and integrate an MS Teams bot leveraging their API.}
+      \resumeItemListStart
+          \resumeItem {Specialized in chat event handling and backend implementation for the bot.}
+          \resumeItem {Adapted and optimized API REST functions for seamless compatibility with MS Teams.}
+       \resumeItemListEnd
+       \resumeItem {NodeJS, Python, and Django.}
     \resumeItemListEnd
   \resumeEntryEnd
 
@@ -214,52 +233,37 @@
   \resumeEntryStart
     \resumeEntryTSDL
       {Camosun College}{Sept 2019 - Aug 2021}
-      {Information and Computer systems}{Diploma}
+      {Information and Computer Systems}{Diploma}
       \resumeItemListStart
-        \resumeItem {Learned concrete skills on how to:}
-          \resumeItemListStart
-            \resumeItem {program, deploy, secure, and maintain software applications to meet requirements.}
-            \resumeItem {design, analyze, maintain, and interpret data.}
-            \resumeItem {effectively communicate and collaborate with colleagues, team members, employers, and technical and non-technical personnel.}
-          \resumeItemListEnd
-        \resumeItem {Hands-on work in web and mobile programming, database design and management, software design, and operations and maintenance of networks and software.}
+      \resumeItem {Acquired practical skills in programming, software deployment, security, and maintenance to meet industry standards.}
+      \resumeItem{Gained hands-on experience in web and mobile programming, database design and management, software design, and the operations and maintenance of networks and software.}
       \resumeItemListEnd
   \resumeEntryEnd
   
   
 %-------------------------------------------------- PROJECTS --------------------------------------------------
 \section{\faFlask}{Projects}
+
 \resumeEntryStart
     \resumeEntryTD
-      {Numpad Calculator}{\href{https://github.com/Ethan-Haque/duckboard-apps}{Repo - github.com/Ethan-Haque/duckboard-apps}}
-      \resumeItemListStart
-        \resumeItem {Reprogrammed custom numpad to have onboard calculator functionality.}
-        \resumeItemListStart
-          \resumeItem {OLED display shows current equation/answer.}
-          \resumeItem {Answer is saved in onboard memory and can be outputted through the print\_ans key.}
-        \resumeItemListEnd
-        \resumeItem {Keymap written in C. Compiled and flashed using QMK terminal.}
-      \resumeItemListEnd
-  \resumeEntryEnd
-  
-  \resumeEntryStart
-    \resumeEntryTD
-      {Drone Simulator}{\href{https://ethan-haque.github.io/DroneSim/}{WebGL Demo - ethan-haque.github.io/DroneSim}}
+      {React Typing Test}{\href{https://github.com/Ethan-Haque/typing-test-react}{github.com/Ethan-Haque/typing-test-react}}
     \resumeItemListStart
-      \resumeItem {Programmed over 2 weeks for a Game Development course final.}
-      \resumeItemListStart
-        \resumeItem {Realistic drone physics scripted in C\#.}
-        \resumeItem {Keyboard and Gamepad compatibility.}
-      \resumeItemListEnd
-      \resumeItem {Built in Unity and scripted in C\#. Uploaded to GitHub Pages in WebGL.}
+      \resumeItem {Minimal typing test with a "reactive" typing experience, featuring dynamic padding and a keypress hook for a clean aesthetic, actively discouraging users from looking ahead.}
+      \resumeItem {Implemented tracking and storage functionalities for time, words per minute, and accuracy, utilizing serverless functions and FaunaQL. Results are showcased within a leaderboard sorted by sentence count.}
+    \resumeItemListEnd
+  
+    \resumeEntryTD
+      {Numpad Calculator}{\href{https://github.com/Ethan-Haque/duckboard-calc}{github.com/Ethan-Haque/duckboard-calc}}
+    \resumeItemListStart
+      \resumeItem {Reprogrammed custom numpad to have onboard calculator functionality, offering basic operations such as addition, subtraction, multiplication, and division using Tinyexpr displayed on OLED screen with memory.}
+      \resumeItem {Keymap written in C. Compiled and flashed using QMK terminal.}
     \resumeItemListEnd
   \resumeEntryEnd
-
 %-------------------------------------------------- PROGRAMMING SKILLS --------------------------------------------------
 \section{\faGears}{Skills}
-\resumeEntryStart
-  \resumeEntryS{Languages} {HTML, JavaScript, C++, C\#, SQL, Java, Python, PHP}
-  \resumeEntryS{Frameworks and Tools} {NodeJS, Angular, React, Git, Docker, MongoDB, Django, AWS (DynamoDB, EC2, S3)}
-\resumeEntryEnd
+ \resumeEntryStart
+  \resumeEntryS{Languages} {HTML, JavaScript, TypeScript, CSS, SQL, PHP, Java, Python, C++, C\#, Swift}
+  \resumeEntryS{Frameworks and Tools} {NodeJS, Angular, React, Git, Docker, MongoDB, Django, Ionic, AWS, Google CP \& API, Mapbox, Xcode}
+ \resumeEntryEnd
 
 \end{document}
